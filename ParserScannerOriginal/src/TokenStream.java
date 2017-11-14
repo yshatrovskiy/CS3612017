@@ -48,17 +48,21 @@ public class TokenStream {
 
 		// Then check for a comment, and bypass it
 		// but remember that / is also a division operator.
+
+
 		while (nextChar == '/') {
 			// Changed if to while to avoid the 2nd line being printed when
 			// there
 			// are two comment lines in a row.
 			nextChar = readChar();
-			if (nextChar == '/') { // If / is followed by another /
-				// skip rest of line - it's a comment.
-				// TO BE COMPLETED
-				// look for <cr>, <lf>, <ff>
-				System.out.println(nextChar);
-				
+			if(nextChar == '/'){
+				while(!isEndOfLine(nextChar)){
+					nextChar = readChar();
+				}
+				nextChar = readChar();
+				//Extra end of line character \r\n
+				if(isEndOfLine(nextChar))
+					nextChar = readChar();
 
 			} else {
 				// A slash followed by a backslash is an AND operator (/\).
@@ -73,7 +77,6 @@ public class TokenStream {
 				return t;
 			}
 		}
-
 		// Then check for an operator; recover 2-character operators
 		// as well as 1-character ones.
 		if (isOperator(nextChar)) {
@@ -218,7 +221,7 @@ public class TokenStream {
 		}
 		return (char) i;
 	}
-	
+
 	private boolean isBool(String s){
 		return (s.equals("true") || s.equals("false"));
 	}

@@ -18,7 +18,7 @@ public class ScannerDemo {
 	public static void main(String args[]) {
 
 
-		TokenStream ts = new TokenStream(file7);
+		TokenStream ts = new TokenStream(file3);
 
 
 		
