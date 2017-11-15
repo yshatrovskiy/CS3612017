@@ -3,7 +3,6 @@ void main () {
    int n, fib0, fib1;
    int temp, result;
    n = 8;
-   if (n>0) {
-      n = n - 1;
-   }
+   if (n>0)
+   	n = n - 1;
 }

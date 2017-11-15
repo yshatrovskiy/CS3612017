@@ -1,12 +1,12 @@
-// compute result = the 8th Fibonacci number
+// No lexical errors. No syntactical errors.
 void main () {
+// compute result = the 8th Fibonacci number
    int n, fib0, fib1;
-   int temp, result, not;
-   not = 4;
+   int temp, result;
    n = 8;
    fib0 = 0;
    fib1 = 1;
-   while (n != 0) {
+   while (n>5) {
       temp = fib0;
       fib0 = fib1;
       fib1 = fib0 + temp;

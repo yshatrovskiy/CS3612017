@@ -76,6 +76,7 @@ public class TokenStream {
 				t.setType("Operator");
 				return t;
 			}
+			skipWhiteSpace();
 		}
 		// Then check for an operator; recover 2-character operators
 		// as well as 1-character ones.
@@ -112,7 +113,6 @@ public class TokenStream {
 			case '!':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
-				System.out.println(tempChar);
 				if(tempChar.equals("!=")){
 					t.setValue(tempChar);
 					nextChar = readChar();
@@ -121,7 +121,6 @@ public class TokenStream {
 			case '|':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
-				System.out.println(tempChar);
 				if(tempChar.equals("||")){
 					t.setValue(tempChar);
 					nextChar = readChar();
@@ -246,10 +245,10 @@ public class TokenStream {
 	}
 
 	private boolean isEndOfLine(char c) {
-		return (c == '\r' || c == '\n' || c == '\f');
+		return (c == '\r' || c == '\n' || c == '\f' || c == '\t');
 	}
 
-	private boolean isEndOfToken(char c) { // Is the value a seperate token?
+	private boolean isEndOfToken(char c) { // Is the value a separate token?
 		return (isWhiteSpace(nextChar) || isOperator(nextChar)
 				|| isSeparator(nextChar) || isEof);
 	}

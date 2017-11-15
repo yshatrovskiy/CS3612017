@@ -60,7 +60,7 @@ public class ConcreteSyntax {
 		// Declarations --> { Declaration }*
 		Declarations ds = new Declarations();
 		while (token.getValue().equals("int")
-				|| token.getValue().equals("bool")) {
+				|| token.getValue().equals("boolean")) {
 			declaration(ds);
 		}
 		return ds;
@@ -78,7 +78,7 @@ public class ConcreteSyntax {
 		Type t = null;
 		if (token.getValue().equals("int"))
 			t = new Type(token.getValue());
-		else if (token.getValue().equals("bool"))
+		else if (token.getValue().equals("boolean"))
 			t = new Type(token.getValue());
 		else
 			throw new RuntimeException(SyntaxError("int | boolean"));
@@ -296,24 +296,48 @@ public class ConcreteSyntax {
 		c.test = expression();
 		match(")");
 		c.thenbranch = statement();
+		token = input.nextToken();
+		if(!token.getValue().equals("else"))
+			return c;
+		c.elsebranch = statement();
 		// TO BE COMPLETED
-		
 		return c;
 	}
 
 	private Loop whileStatement() {
 		// WhileStatement --> while ( Expression ) Statement
-		Loop l = new Loop();
+		Loop l =  new Loop();
+		Expression e;
 		match("while");
 		match("(");
-		l.test = expression();
+		e = expression();
+		l.test = e;
 		match(")");
 		match("{");
 		while (!token.getValue().equals("}")) {
-			l.body = statement();
+			l = new Loop();
+			l.test = e;
+			l.body = statements();
+			System.out.println(token.getValue() + " Token");
 		}
 		match("}");
+		
+		
 		// TO BE COMPLETED
+		
+//		Binary b;
+//		Expression e;
+//		e = relation();
+//		while (token.getValue().equals("&&")) {
+//			b = new Binary();
+//			// TO BE COMPLETED
+//			b.term1 = e;
+//			b.op = new Operator(token.getValue());
+//			token = input.nextToken();
+//			b.term2 = relation();
+//			e = b;
+//		}
+		
 		return l;
 	}
 
