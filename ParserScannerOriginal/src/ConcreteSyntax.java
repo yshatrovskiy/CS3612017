@@ -200,6 +200,7 @@ public class ConcreteSyntax {
 				|| token.getValue().equals(">")
 				|| token.getValue().equals(">=")
 				|| token.getValue().equals("==")
+				|| token.getValue().equals("!=")
 				|| token.getValue().equals("<>")) {
 			b = new Binary();
 			// TO BE COMPLETED
@@ -302,14 +303,15 @@ public class ConcreteSyntax {
 
 	private Loop whileStatement() {
 		// WhileStatement --> while ( Expression ) Statement
-		System.out.println("While Looping");
 		Loop l = new Loop();
 		match("while");
 		match("(");
 		l.test = expression();
 		match(")");
 		match("{");
-		l.body = statement();
+		while (!token.getValue().equals("}")) {
+			l.body = statement();
+		}
 		match("}");
 		// TO BE COMPLETED
 		return l;

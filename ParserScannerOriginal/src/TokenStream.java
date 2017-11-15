@@ -101,6 +101,7 @@ public class TokenStream {
 			case '&':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
+				System.out.println(tempChar);
 				if(tempChar.equals("&&")){
 					t.setValue(tempChar);
 					nextChar = readChar();
@@ -111,6 +112,7 @@ public class TokenStream {
 			case '!':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
+				System.out.println(tempChar);
 				if(tempChar.equals("!=")){
 					t.setValue(tempChar);
 					nextChar = readChar();
@@ -119,6 +121,7 @@ public class TokenStream {
 			case '|':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
+				System.out.println(tempChar);
 				if(tempChar.equals("||")){
 					t.setValue(tempChar);
 					nextChar = readChar();
@@ -276,7 +279,8 @@ public class TokenStream {
 				c == '<' || 
 				c == '>' || 
 				c == '!' ||
-				c == '&'
+				c == '&' ||
+				c == '|'
 				);
 	}
 
