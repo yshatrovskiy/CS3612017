@@ -313,33 +313,34 @@ public class ConcreteSyntax {
 		e = expression();
 		l.test = e;
 		match(")");
-		match("{");
-		while (!token.getValue().equals("}")) {
-			l = new Loop();
-			l.test = e;
+		if(!token.getValue().equals("{")){
 			l.body = statements();
-			System.out.println(token.getValue() + " Token");
+			match("}");
+		}else{
+			l.body = statement();
 		}
-		match("}");
 		
-		
+		//		match("{");
+		//		//		while (!token.getValue().equals("}")) {
+		//		//			l = new Loop();
+		//		l.test = e;
+		//		l.body = statements();
 		// TO BE COMPLETED
-		
-//		Binary b;
-//		Expression e;
-//		e = relation();
-//		while (token.getValue().equals("&&")) {
-//			b = new Binary();
-//			// TO BE COMPLETED
-//			b.term1 = e;
-//			b.op = new Operator(token.getValue());
-//			token = input.nextToken();
-//			b.term2 = relation();
-//			e = b;
-//		}
-		
+		//		Binary b;
+		//		Expression e;
+		//		e = relation();
+		//		while (token.getValue().equals("&&")) {
+		//			b = new Binary();
+		//			// TO BE COMPLETED
+		//			b.term1 = e;
+		//			b.op = new Operator(token.getValue());
+		//			token = input.nextToken();
+		//			b.term2 = relation();
+		//			e = b;
+		//		}
+
 		return l;
-	}
+	} 
 
 	private boolean isInteger(String s) {
 		boolean result = true;

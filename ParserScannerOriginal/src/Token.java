@@ -36,7 +36,7 @@ public class Token {
 	}
 
 	public String toString() {
-		return "Value: " + this.getValue() + " " + "Type: " + this.getType();
+		return "Type: " + this.getType() + " Value: " + this.getValue();
 	}
 
 }

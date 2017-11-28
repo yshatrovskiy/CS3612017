@@ -65,14 +65,8 @@ public class TokenStream {
 					nextChar = readChar();
 
 			} else {
-				// A slash followed by a backslash is an AND operator (/\).
-				// 92 is \, the number is used since \ causes an error.
-				if (nextChar == 92) {
-					t.setValue("/" + nextChar);
-					nextChar = readChar();
-				} else
-					// A slash followed by anything else must be an operator.
-					t.setValue("/");
+				// A slash followed by anything else must be an operator.
+				t.setValue("/");
 				t.setType("Operator");
 				return t;
 			}
@@ -127,10 +121,6 @@ public class TokenStream {
 				}else{
 					t.setType("Other");
 				}
-				return t;
-			case 92: // look for the OR operator, \/
-				nextChar = readChar();
-				// TO BE COMPLETED
 				return t;
 			default: // all other operators
 				nextChar = readChar();
