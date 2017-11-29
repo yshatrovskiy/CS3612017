@@ -74,14 +74,16 @@ public class TokenStream {
 		}
 		// Then check for an operator; recover 2-character operators
 		// as well as 1-character ones.
-		if (isOperator(nextChar)) {
+		if (isOperator(nextChar) || nextChar == '|' || nextChar == '&') {
 			t.setType("Operator");
 			t.setValue(t.getValue() + nextChar);
 			switch (nextChar) {
 			case '<':
 			case '>':
+			case '!':
 			case '=':
 				// look for <=, >=, !=, ==
+				t.setType("Operator");
 				nextChar = readChar();
 				String tempChar = t.getValue() + nextChar;
 				if(tempChar.equals("<=") ||
@@ -92,7 +94,7 @@ public class TokenStream {
 					t.setValue(tempChar);
 					nextChar = readChar();
 				}
-				skipWhiteSpace(); return t;
+				return t;
 			case '&':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
@@ -102,15 +104,8 @@ public class TokenStream {
 				}else{
 					t.setType("Other");
 				}
-				skipWhiteSpace(); return t;		
-			case '!':
-				nextChar = readChar();
-				tempChar = t.getValue() + nextChar;
-				if(tempChar.equals("!=")){
-					t.setValue(tempChar);
-					nextChar = readChar();
-				}
 				skipWhiteSpace(); return t;
+
 			case '|':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
@@ -121,9 +116,10 @@ public class TokenStream {
 					t.setType("Other");
 				}
 				return t;
+
 			default: // all other operators
 				nextChar = readChar();
-				skipWhiteSpace(); return t;
+				return t;
 			}
 		}
 
@@ -133,7 +129,7 @@ public class TokenStream {
 			t.setValue(t.getValue() + nextChar);
 			nextChar = readChar();
 			// TO BE COMPLETED
-			skipWhiteSpace(); return t;
+			skipWhiteSpace();return t;
 		}
 
 		// Then check for an identifier, keyword, or literal.
@@ -150,7 +146,7 @@ public class TokenStream {
 			if(isBool(t.getValue()))
 				t.setType("Literal");
 			if (isEndOfToken(nextChar)) // If token is valid, returns.
-				skipWhiteSpace(); return t;
+				return t;
 		}
 
 		if (isDigit(nextChar)) { // check for integers
@@ -162,7 +158,7 @@ public class TokenStream {
 			// An Integer-Literal is to be only followed by a space,
 			// an operator, or a separator.
 			if (isEndOfToken(nextChar)) // If token is valid, returns.
-				skipWhiteSpace(); return t;
+				return t;
 		}
 
 		if (isEof)
@@ -267,8 +263,8 @@ public class TokenStream {
 				c == '<' || 
 				c == '>' || 
 				c == '!' ||
-				c == '&' ||
-				c == '|'
+				c == '|' ||
+				c == '&'
 				);
 	}
 

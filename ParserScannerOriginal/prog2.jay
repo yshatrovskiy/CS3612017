@@ -15,3 +15,45 @@ void main () {
    result = fib0;
 }
 
+
+// Syntactical error: ) of main missing
+void main({
+int number, sqnumber;
+number = 8;
+sqnumber = number * number;
+result = sqnumber;
+}
+
+
+
+// Lexical error - use of @
+void main(){
+int number;
+number = 8 @ 7;
+}
+
+// Syntactical error: missing ;
+void main(){
+int number, sqnumber
+number = 8;
+sqnumber = number * number;
+result = sqnumber;
+}
+
+// Syntactical error:  - ; missing
+void main(){
+int n
+}
+
+// No lexical errors. No syntactical errors - Computes 8*8 
+void main(){
+int number, sqnumber;
+number = 8;
+sqnumber = number * number;
+result = sqnumber;
+}
+
+
+
+
+

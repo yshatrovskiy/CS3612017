@@ -4,7 +4,7 @@
  */
 public class ScannerDemo {
 
-	private static String file1 = "prog2.jay";
+	private static String file1 = "keyword.jay";
 	
 	private static int counter = 1;
 
@@ -22,7 +22,7 @@ public class ScannerDemo {
 			i++;
 //			if(tok.getType().equals("Other"))
 //				System.out.println("Token " + i + " " + tok.toString());
-			System.out.println("Token " + i + " " + tok.toString());
+			System.out.println("Token " + i + " - Type: " + tok.getType() + " - Value: " + tok.getValue());
 		
 		}
 	}
