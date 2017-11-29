@@ -11,7 +11,7 @@ a33&&4
 !=
 &&
 &!
-<=
+<<=
 =<
 a<=a
 ==
@@ -36,3 +36,17 @@ false3
 3false
 a?
 a33
+=+-*/<<=>>===!=&&||!
+boolean
+else
+if
+int
+main
+void
+while
+345
+345a
+a345
+true
+false
+)(}{;,
