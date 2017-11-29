@@ -4,7 +4,7 @@
  */
 public class ScannerDemo {
 
-	private static String file1 = "keyword.jay";
+	private static String file1 = "testCases.jay";
 	
 	private static int counter = 1;
 
