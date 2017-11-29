@@ -1,5 +1,0 @@
-// Lexical error - use of @
-void main(){
-int number;
-number = 8 @ 7;
-}
