@@ -68,7 +68,7 @@ public class TokenStream {
 				// A slash followed by anything else must be an operator.
 				t.setValue("/");
 				t.setType("Operator");
-				return t;
+				skipWhiteSpace(); return t;
 			}
 			skipWhiteSpace();
 		}
@@ -92,7 +92,7 @@ public class TokenStream {
 					t.setValue(tempChar);
 					nextChar = readChar();
 				}
-				return t;
+				skipWhiteSpace(); return t;
 			case '&':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
@@ -102,7 +102,7 @@ public class TokenStream {
 				}else{
 					t.setType("Other");
 				}
-				return t;		
+				skipWhiteSpace(); return t;		
 			case '!':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
@@ -110,7 +110,7 @@ public class TokenStream {
 					t.setValue(tempChar);
 					nextChar = readChar();
 				}
-				return t;
+				skipWhiteSpace(); return t;
 			case '|':
 				nextChar = readChar();
 				tempChar = t.getValue() + nextChar;
@@ -123,7 +123,7 @@ public class TokenStream {
 				return t;
 			default: // all other operators
 				nextChar = readChar();
-				return t;
+				skipWhiteSpace(); return t;
 			}
 		}
 
@@ -133,7 +133,7 @@ public class TokenStream {
 			t.setValue(t.getValue() + nextChar);
 			nextChar = readChar();
 			// TO BE COMPLETED
-			return t;
+			skipWhiteSpace(); return t;
 		}
 
 		// Then check for an identifier, keyword, or literal.
@@ -150,7 +150,7 @@ public class TokenStream {
 			if(isBool(t.getValue()))
 				t.setType("Literal");
 			if (isEndOfToken(nextChar)) // If token is valid, returns.
-				return t;
+				skipWhiteSpace(); return t;
 		}
 
 		if (isDigit(nextChar)) { // check for integers
@@ -162,7 +162,7 @@ public class TokenStream {
 			// An Integer-Literal is to be only followed by a space,
 			// an operator, or a separator.
 			if (isEndOfToken(nextChar)) // If token is valid, returns.
-				return t;
+				skipWhiteSpace(); return t;
 		}
 
 		if (isEof)
