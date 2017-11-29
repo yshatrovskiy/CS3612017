@@ -104,7 +104,7 @@ public class TokenStream {
 				}else{
 					t.setType("Other");
 				}
-				skipWhiteSpace(); return t;
+				return t;
 
 			case '|':
 				nextChar = readChar();

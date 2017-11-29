@@ -20,8 +20,6 @@ public class ScannerDemo {
 				break;
 			tok = ts.nextToken();
 			i++;
-//			if(tok.getType().equals("Other"))
-//				System.out.println("Token " + i + " " + tok.toString());
 			System.out.println("Token " + i + " - Type: " + tok.getType() + " - Value: " + tok.getValue());
 		
 		}
