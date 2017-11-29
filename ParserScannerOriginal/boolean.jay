@@ -1,8 +1,0 @@
-// compute result = the 8th Fibonacci number
-void main () {
-   int n, fib0, fib1;
-   int temp, result;
-   n = 8;
-   if (n>0)
-   	n = n - 1;
-}
