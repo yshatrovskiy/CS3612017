@@ -6,13 +6,30 @@ void main () {
    n = 8;
    fib0 = 0;
    fib1 = 1;
+   
    while (n>0) {
       temp = fib0;
       fib0 = fib1;
       fib1 = fib0 + temp;
       n = n - 1;
    }
-   result = fib0;
+   while (n>0)
+      temp = fib0;
+
+   fib0=5;
+   
+   if (n > 0)
+   	temp = 5;
+   	
+   	
+   	if( n > 5){
+   	 n=6;
+   	 n=7; 
+   	}else{
+	n = 9;
+	n = 12;   	
+   	}
+
 }
 
 
