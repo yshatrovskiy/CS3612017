@@ -1,58 +1,46 @@
-===
-a&3
-a|3
-a@3
-a||3
-a&&3
-4=!a
-!=
->=s
-a33&&4
-!=
-&&
-&!
-<<=
-=<
-a<=a
-==
-<
-,
-a,b
-c;d
-2e;f
-a2;ga2(golf)4;
-boolean
-2;true
-false3
-3false
-()
-((()
-(ab3)(
-{ab{{}}
-;.{"}
+// No lexical errors. No syntactical errors.
+void main () {
+   int n, fib0, fib1;
+   int temp, result;
+   boolean yes, no;
+   no = false;
+   yes = true;
+   n = 8;
+   fib0 = 0;
+   fib1 = 1;
+   fib0 = 1 * 12;
+   
+   //block
+   while (n>0) {
+      temp = fib0;
+      fib0 = fib1;
+      fib1 = fib0 + temp;
+      n = n - 1;
+   }
+   
+   //no block
+   while (n>0)
+      temp = fib0;
 
-2;true
-false3
-3false
-a?
-a33
-=+-*/<<=>>===!=&&||!
-boolean
-else
-if
-int
-main
-void
-while
-345
-345a
-a345
-true
-false
-)(}{;,
-3&3
+   fib0=5;
+   
+   //assignment
+   if (5 == 0)
+   	temp = 5;
+   	
+   
+   	//blocked multi conditional
+   	if( n > 5 && n > 6 || n == 5 || n == 6 && n >= 12){
+   	 n=6;
+   	 n=7; 
+   	}else{
+	n = 9;
+	n = 12;   	
+   	}
+   	
+   	
+   	
 }
-)
 
 
 

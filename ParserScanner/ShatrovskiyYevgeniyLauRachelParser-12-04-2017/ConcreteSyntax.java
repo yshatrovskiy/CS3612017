@@ -300,7 +300,6 @@ public class ConcreteSyntax {
 			token = input.nextToken();
 			c.elsebranch = statement();	
 		}
-		// TO BE COMPLETED
 		return c;
 	}
 
@@ -314,14 +313,6 @@ public class ConcreteSyntax {
 		l.test = e;
 		match(")");
 		l.body = statement();
-//		
-//		if(token.getValue().equals("{")){
-//			System.out.println("Here1");
-//			l.body = statement();
-//		}else{
-//			System.out.println("Here2");
-//			l.body = statement();
-//		}
 		return l;
 	} 
 

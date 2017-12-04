@@ -1,10 +1,7 @@
-
-void main() {
-	int temp;
-	boolean jacket;
-	temp = 40;
-	if (temp>40 || temp<60)
-		jacket = true; //test
-	else
-		jacket = false;
+// Syntactical error: missing ;
+void main(){
+int number, sqnumber
+number = 8;
+sqnumber = number * number;
+result = sqnumber;
 }
