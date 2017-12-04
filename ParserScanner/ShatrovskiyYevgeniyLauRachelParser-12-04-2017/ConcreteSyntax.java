@@ -296,10 +296,10 @@ public class ConcreteSyntax {
 		c.test = expression();
 		match(")");
 		c.thenbranch = statement();
-		token = input.nextToken();
-		if(!token.getValue().equals("else"))
-			return c;
-		c.elsebranch = statement();
+		if(token.getValue().equals("else")){
+			token = input.nextToken();
+			c.elsebranch = statement();	
+		}
 		// TO BE COMPLETED
 		return c;
 	}
@@ -313,32 +313,15 @@ public class ConcreteSyntax {
 		e = expression();
 		l.test = e;
 		match(")");
-		if(!token.getValue().equals("{")){
-			l.body = statements();
-			match("}");
-		}else{
-			l.body = statement();
-		}
-		
-		//		match("{");
-		//		//		while (!token.getValue().equals("}")) {
-		//		//			l = new Loop();
-		//		l.test = e;
-		//		l.body = statements();
-		// TO BE COMPLETED
-		//		Binary b;
-		//		Expression e;
-		//		e = relation();
-		//		while (token.getValue().equals("&&")) {
-		//			b = new Binary();
-		//			// TO BE COMPLETED
-		//			b.term1 = e;
-		//			b.op = new Operator(token.getValue());
-		//			token = input.nextToken();
-		//			b.term2 = relation();
-		//			e = b;
-		//		}
-
+		l.body = statement();
+//		
+//		if(token.getValue().equals("{")){
+//			System.out.println("Here1");
+//			l.body = statement();
+//		}else{
+//			System.out.println("Here2");
+//			l.body = statement();
+//		}
 		return l;
 	} 
 
