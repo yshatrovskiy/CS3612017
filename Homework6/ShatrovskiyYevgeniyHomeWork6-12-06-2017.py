@@ -1,4 +1,9 @@
 # pylint: disable-all
+
+# NOTE : Python 2.7 does not require parenthesis to print
+# Python 3 does however
+
+
 # Excercise 1
 print (5/3)
 print 5%3
@@ -28,8 +33,6 @@ print bool(0.1)
 print range(5)
 print type(range(5))
 
-
- if x / 2 == 0 and x / 7 == 0 and x / 11 == 0:
 
 #Exercise 5
 numFound = 0
