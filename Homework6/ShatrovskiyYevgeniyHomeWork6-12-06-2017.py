@@ -1,15 +1,15 @@
-# # pylint: disable-all
-# # Excercise 1
-# print (5/3)
-# print 5%3
-# print 5.0 / 3
-# print 5/3.0
-# print 5.2%3
+# pylint: disable-all
+# Excercise 1
+print (5/3)
+print 5%3
+print 5.0 / 3
+print 5/3.0
+print 5.2%3
 
-# #Exercise 2
-# print 2000.3**200
-# print 1.0 + 1.0 - 1.0
-# print 1.0 + 1.0e20 - 1.0e20
+#Exercise 2
+print 2000.3**200
+print 1.0 + 1.0 - 1.0
+print 1.0 + 1.0e20 - 1.0e20
 
 #Exercise 3
 print float(123)
@@ -170,14 +170,14 @@ plt.title('Exercise 10: Time vs. Speed')
 plt.show()
 
 
-# # Exercise 11
-# def almostFactorial(list):
-#     if (list is not None):
-#         if len(list) > 0:
-#             product = 1
-#             for i in list:
-#                 product = product * i
-#             return product
+# Exercise 11
+def almostFactorial(list):
+    if (list is not None):
+        if len(list) > 0:
+            product = 1
+            for i in list:
+                product = product * i
+            return product
   
 inputlistOne = [1, 2, 3, 4]
 inputlistNone = []
@@ -194,7 +194,6 @@ def almostFactorialRec(inputlist):
     else:
       return inputlist[len(inputlist)-1] * almostFactorialRec(inputlist[:-1])
 
-print "Almost factorial"
 print almostFactorialRec(inputlistTwo)
 print almostFactorialRec(inputlistThree)
 
