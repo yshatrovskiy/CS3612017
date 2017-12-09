@@ -19,7 +19,7 @@ void main () {
    }
    
    //no block
-   while (n>0)
+   while (n!=0)
       temp = fib0;
 
    fib0=5;
@@ -36,10 +36,10 @@ void main () {
    	}else{
 	n = 9;
 	n = 12;   	
-   	}
    	
    	
-   	
+   	}  	
+ 
 }
 
 
